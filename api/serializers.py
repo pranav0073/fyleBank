@@ -13,4 +13,4 @@ class BranchSerializer(serializers.HyperlinkedModelSerializer):
         model = Branch
         depth =1
         
-        fields = ('id', 'branch','ifsc','address','city','state', 'bank')
+        fields = ( 'branch','ifsc','address','city','state', 'bank')

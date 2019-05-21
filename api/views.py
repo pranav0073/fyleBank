@@ -6,30 +6,18 @@ from .models import Bank, Branch
 from rest_framework.decorators import api_view
 from .serializers import BankSerializer, BranchSerializer
 from rest_framework import viewsets
-
+from .seedutil import insertBank
 
 
 def index(request):
-    branch = Branch.objects.first()
-    response_data = {}
-    response_data['ifsc'] = branch.ifsc
-    response_data['branch'] = branch.branch
-    response_data['address'] = branch.address
-    response_data['city'] = branch.city
-    response_data['district'] = branch.district
-    response_data['state'] = branch.state
-    response_data['bank_name'] = branch.bank_id.name
-    response_data['bank_id'] = branch.bank_id.id
     
-    return HttpResponse(json.dumps(response_data), content_type="application/json")
+    
+    return HttpResponse("Welcome")
 
 
 @api_view(["GET"])
-def test(request,bank,city):
-    # bank = str(bank)
-    # b = Bank.objects.filter(name=bank)
-    
-    # blist = Branch.objects.get(bank_id=b )
+def test(request):
+    insertBank()
     return HttpResponse("test")
    
     
@@ -66,7 +54,7 @@ def bankDetail(request,pk):
 @api_view(["GET"])
 def branchList(request):
     if request.method == 'GET':
-        objs = Branch.objects.first()
+        objs = Branch.objects.all()[:1000]
         __serializer = BranchSerializer(objs, many=True)
         return JsonResponse(__serializer.data, safe=False)
 

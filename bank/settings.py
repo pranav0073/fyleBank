@@ -26,7 +26,7 @@ SECRET_KEY = 'cf2n(_si=e5+r2r3jqg2o)-wk1_utj!m%t993*&zw*5qn+#=bf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fylebankapp.herokuapp.com']
+ALLOWED_HOSTS = ['fylebankapp.herokuapp.com','*']
 
 
 # Application definition
