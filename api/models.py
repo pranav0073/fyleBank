@@ -8,7 +8,7 @@ class Bank(models.Model):
 class Branch(models.Model):
     ifsc = models.CharField(max_length=255, db_index=True, null=False)
     branch = models.CharField(max_length=255)
-    adddress = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     district = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
